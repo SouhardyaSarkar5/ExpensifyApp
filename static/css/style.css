@@ -1,0 +1,211 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2E2E2E; /* Dark background */
+    color: #E0E0E0; /* Light text */
+}
+
+/* Header styles */
+header {
+    background-color: #4CAF50; /* Greenish accent */
+    color: #FFFFFF;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    height: 50px;
+    vertical-align: middle;
+}
+
+/* Navigation styles */
+nav {
+    margin-top: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f1f1f1;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Form styles */
+form {
+    background-color: transparent;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+    color: #E0E0E0; /* Light text */
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #555; /* Darker border */
+    border-radius: 4px;
+    background-color: #2E2E2E; /* Dark input background */
+    color: #E0E0E0; /* Light text */
+    box-sizing: border-box; /* Ensures padding and border are included in the width calculation */
+}
+
+form button {
+    background-color: #f53333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45A049; /* Darker greenish accent */
+}
+
+/* Adjust the width and alignment of form elements */
+form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+form .form-group-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .form-group-row > div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+form .form-group-row > div:last-child {
+    margin-right: 0;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #363636; /* Dark table background */
+}
+
+table, th, td {
+    border: 1px solid #555; /* Darker border */
+    color: #E0E0E0; /* Light text */
+}
+
+thead {
+    background-color: #4CAF50; /* Greenish accent */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #2E2E2E; /* Darker row background */
+}
+
+tr:hover {
+    background-color: #555; /* Dark hover effect */
+}
+
+td {
+    padding: 10px;
+    vertical-align: middle; /* Aligns the content vertically in the middle */
+}
+
+/* Footer styles */
+footer {
+    background-color: #4CAF50; /* Greenish accent */
+    color: #FFFFFF;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+button {
+    background-color: #4CAF50; /* Greenish accent */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45A049; /* Darker greenish accent */
+}
+
+/* Flash message styles */
+.flash-messages {
+    margin: 20px 0;
+}
+
+.flash {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.flash.success {
+    background-color: #8BC34A; /* Lighter green */
+    color: #2E7D32; /* Darker green */
+    border: 1px solid #AED581; /* Greenish border */
+}
+
+.flash.error {
+    background-color: #EF5350; /* Lighter red */
+    color: #B71C1C; /* Darker red */
+    border: 1px solid #E57373; /* Red border */
+}
+
+/* Add specific styles for Add Category button */
+#addCategoryButton {
+    width: auto;
+    padding: 10px 15px;
+}
+
+/* Styles for delete button as a dustbin icon */
+.delete-button {
+    background: none;
+    border: none;
+    color: #EF5350; /* Red color for delete icon */
+    cursor: pointer;
+    padding: 0;
+    font-size: 0; /* Hide the button text */
+}
+
+.delete-button i {
+    font-size: 1.2em; /* Adjust icon size */
+    color: #EF5350; /* Red color for delete icon */
+}
+
+.delete-button:hover i {
+    color: #D32F2F; /* Darker red on hover */
+}

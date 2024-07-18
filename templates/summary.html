@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Expense and Income Summary</h1>
+    <canvas id="summaryChart" width="800" height="400"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('summaryChart').getContext('2d');
+        const data = {
+            labels: [
+                {% for expense in expenses_data %}
+                '{{ expense[0] }}',
+                {% endfor %}
+            ],
+            datasets: [
+                {
+                    label: 'Expenses',
+                    data: [
+                        {% for expense in expenses_data %}
+                        {{ expense[1] }},
+                        {% endfor %}
+                    ],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    tension: 0.1,
+                    fill: false,
+                    yAxisID: 'y-axis-expense'
+                },
+                {
+                    label: 'Income',
+                    data: [
+                        {% for income in incomes_data %}
+                        {{ income[1] }},
+                        {% endfor %}
+                    ],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    tension: 0.1,
+                    fill: false,
+                    yAxisID: 'y-axis-income'
+                }
+            ]
+        };
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stacked: false,
+                        title: {
+                            display: true,
+                            text: 'Amount ($)'
+                        },
+                        position: 'left',
+                        grid: {
+                            display: true
+                        }
+                    }
+                }
+            }
+        };
+        new Chart(ctx, config);
+    </script>
+{% endblock %}
