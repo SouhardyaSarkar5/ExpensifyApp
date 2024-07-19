@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expensify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="landing-container">
+        <div class="backgroundColor">
+        <div class="hero-content">
+            <img src="{{ url_for('static', filename='images/landing-image.png') }}" alt="Expense Tracker" class="hero-image">
+            <h1 class="hero-title">Welcome to Expensify</h1>
+            <p class="hero-subtitle">Manage your expenses and incomes efficiently.</p>
+            <a href="{{ url_for('index') }}" class="get-started-btn">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>

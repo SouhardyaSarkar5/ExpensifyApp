@@ -26,7 +26,7 @@ def init_db():
             budget REAL NOT NULL
         )''')
         conn.commit()
-        
+
 def check_db_contents():
     with sqlite3.connect('expenses.db') as conn:
         cursor = conn.cursor()
@@ -40,6 +40,25 @@ def check_db_contents():
         print("Incomes:", incomes)
 
 check_db_contents()
+
+@app.route('/')
+def landing_page():
+    return render_template('landing.html')
+
+@app.route('/index')
+def index():
+    with sqlite3.connect('expenses.db') as conn:
+        cursor = conn.cursor()
+        
+        # Fetch expenses
+        cursor.execute('SELECT * FROM expenses ORDER BY date DESC')
+        expenses = cursor.fetchall()
+        
+        # Fetch incomes
+        cursor.execute('SELECT * FROM incomes ORDER BY date DESC')
+        incomes = cursor.fetchall()
+        
+    return render_template('index.html', expenses=expenses, incomes=incomes)
 
 @app.route('/summary')
 def summary():
@@ -55,22 +74,6 @@ def summary():
         incomes_data = cursor.fetchall()
         
     return render_template('summary.html', expenses_data=expenses_data, incomes_data=incomes_data)
-
-
-@app.route('/')
-def index():
-    with sqlite3.connect('expenses.db') as conn:
-        cursor = conn.cursor()
-        
-        # Fetch expenses
-        cursor.execute('SELECT * FROM expenses ORDER BY date DESC')
-        expenses = cursor.fetchall()
-        
-        # Fetch incomes
-        cursor.execute('SELECT * FROM incomes ORDER BY date DESC')
-        incomes = cursor.fetchall()
-        
-    return render_template('index.html', expenses=expenses, incomes=incomes)
 
 @app.route('/add_expense', methods=['GET', 'POST'])
 def add_expense():
